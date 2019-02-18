@@ -7,6 +7,7 @@ spec:
   initContainers:
   - image: postgres
     imagePullPolicy: IfNotPresent
+    name: waiter1
     volumeMounts:
     - mountPath: /var/lib/postgresql
       name: default-volume
@@ -21,6 +22,7 @@ spec:
    
   - image: kpi-image
     imagePullPolicy: IfNotPresent
+    name: waiter2
     volumeMounts:
     - mountPath: /var/lib/postgresql
       name: default-volume
