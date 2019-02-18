@@ -25,17 +25,6 @@ spec:
   - image: kpi-image
     imagePullPolicy: IfNotPresent
     name: waiter
-    volumeMounts:
-    - mountPath: /var/lib/postgresql
-      name: default-volume
-      readOnly: false
-    env:
-    - name: "POSTGRES_DB"
-      value: "postgres"
-    - name: "POSTGRES_USER"
-      value: "postgres"
-    - name: "POSTGRES_PASSWORD"
-      value: "Siemens123"    
     ports:
     - containerPort: 4502
   volumes:
