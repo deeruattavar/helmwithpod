@@ -15,15 +15,9 @@ metadata:
     app.kubernetes.io/name: {{ template "performce.insight" . }}
 spec:
   # This shows how to use a simple value. This will look for a passed-in value called restartPolicy.
-  restartPolicy: {{ .Values.restartPolicy }}
-  volumes:
-  - name: {{ .Values.persistence.name }}
-    emptyDir: {}
+  restartPolicy: {{ .Values.restartPolicy }
   containers:
   - name: waiter
     image: "{{ .Values.image.repository }}"
-    imagePullPolicy: {{ .Values.image.pullPolicy }}
-    volumeMounts:
-    - name: {{ .Values.persistence.name }}
-      mountPath: {{ .Values.persistence.mountPath }}
+   
     
