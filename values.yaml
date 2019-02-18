@@ -1,7 +1,6 @@
 image:
-  repository: postgres
+  repository: alpine
   tag: latest
   pullPolicy: IfNotPresent
 
 restartPolicy: Never
-
