@@ -7,3 +7,7 @@ restartPolicy: Never
 
 service:
   port1: 5433
+persistence:
+  name:database-volume
+  mountPath:/var/lib/postgresql
+  enabled: true
