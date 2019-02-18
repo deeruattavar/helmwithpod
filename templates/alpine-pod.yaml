@@ -4,15 +4,15 @@ metadata:
   name: {{ template "alpine.fullname" . }}
  
 spec:
-  # This shows how to use a simple value. This will look for a passed-in value called restartPolicy.
-  restartPolicy: {{ .Values.restartPolicy }}
   containers:
-  - name: waiter
-  volumes:
-  - name: data-volume
-    image: "{{ .Values.image.repository }}"
-    imagePullPolicy: {{ .Values.image.pullPolicy }}
+  - image: postgres
+    imagePullPolicy: IfNotPresent
+    name: waiter
     volumeMounts:
-    - mountPath: /var/lib/postgresqlt
-      name: data-volume
+    - mountPath: /var/lib/postgresql
+      name: default-volume
+      readOnly: false
+  
+  volumes:
+  - name: default-volume
  
