@@ -19,11 +19,6 @@ spec:
       value: "postgres"
     - name: "POSTGRES_PASSWORD"
       value: "Siemens123" 
-
-  - image: kpi-image
-    imagePullPolicy: IfNotPresent
-    name: waiter
-
   volumes:
   - name: default-volume
  
