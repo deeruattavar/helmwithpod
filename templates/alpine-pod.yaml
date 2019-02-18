@@ -1,7 +1,7 @@
 apiVersion: extensions/v1beta1
 kind: Pod
 metadata:
-  name: alpine-nmcvj-alpine
+  name: pi-app
 spec:
   containers:
   - image: postgres
