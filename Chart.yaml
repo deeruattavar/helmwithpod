@@ -1,5 +1,5 @@
-name: Perormance Ingight
-description: Perormance Ingight on Edge
+name: alpine
+description: Deploy a basic Alpine Linux pod
 version: 0.1.0
 home: https://github.com/helm/helm
 sources:
