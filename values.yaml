@@ -1,6 +1,9 @@
 image:
-  repository: alpine
+  repository: postgres
   tag: latest
   pullPolicy: IfNotPresent
 
 restartPolicy: Never
+
+service:
+  port1: 5433
