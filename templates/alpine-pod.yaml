@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: pi-app
+  name: pod-with-sidecar
  
 spec:
   Containers:
@@ -19,7 +19,6 @@ spec:
       value: "postgres"
     - name: "POSTGRES_PASSWORD"
       value: "Siemens123" 
-  initContainers: 
   - image: kpi-image
     imagePullPolicy: IfNotPresent
     name: waiter2
