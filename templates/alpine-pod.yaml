@@ -8,6 +8,11 @@ spec:
   restartPolicy: {{ .Values.restartPolicy }}
   containers:
   - name: waiter
+  volumes:
+  - name: data-volume
     image: "{{ .Values.image.repository }}"
     imagePullPolicy: {{ .Values.image.pullPolicy }}
+    volumeMounts:
+    - mountPath: /var/lib/postgresqlt
+      name: data-volume
  
