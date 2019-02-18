@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: {{ template "alpine.fullname" . }}
+  name: {{ template "performce.insight.fullname" . }}
   labels:
     # The "app.kubernetes.io/managed-by" label is used to track which tool deployed a given chart.
     # It is useful for admins who want to see what releases a particular tool
@@ -12,12 +12,18 @@ metadata:
     app.kubernetes.io/instance: {{ .Release.Name | quote }}
     # This makes it easy to audit chart usage.
     helm.sh/chart: {{ .Chart.Name }}-{{ .Chart.Version }}
-    app.kubernetes.io/name: {{ template "alpine.name" . }}
+    app.kubernetes.io/name: {{ template "performce.insight" . }}
 spec:
   # This shows how to use a simple value. This will look for a passed-in value called restartPolicy.
   restartPolicy: {{ .Values.restartPolicy }}
+  volumes:
+  - name: {{ .Values.persistence.name }}
+    emptyDir: {}
   containers:
   - name: waiter
-    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    image: "{{ .Values.image.repository }}"
     imagePullPolicy: {{ .Values.image.pullPolicy }}
-    command: ["/bin/sleep", "9000"]
+    volumeMounts:
+    - name: {{ .Values.persistence.name }}
+      mountPath: {{ .Values.persistence.mountPath }}
+    
