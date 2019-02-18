@@ -19,9 +19,7 @@ spec:
       value: "postgres"
     - name: "POSTGRES_PASSWORD"
       value: "Siemens123" 
-    ports:
-    - containerPort:5433 
-    
+   
   - image: kpi-image
     imagePullPolicy: IfNotPresent
     name: waiter
@@ -36,8 +34,7 @@ spec:
       value: "postgres"
     - name: "POSTGRES_PASSWORD"
       value: "Siemens123"    
-    ports:
-    - containerPort: 4502
+    
   volumes:
   - name: default-volume
  
